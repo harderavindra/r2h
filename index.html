@@ -267,6 +267,7 @@
           #0e1a3f 66%,
           #000513 100%
         );
+            box-shadow: 0 0 48px 41px rgba(54, 32, 4, 0.71);
       }
       .pillars-animation .pillars-content {
         position: sticky;
@@ -898,6 +899,138 @@
       .hero2-texts .hero-2text {
         color: #fff;
       }
+      .csr {
+        background: white;
+        position: relative;
+        height: 100vh;
+      }
+      .csr-content {
+        display: flex;
+        height: 100%;
+        align-items: center;
+
+        margin: 0 auto;
+      }
+      
+
+      .csr-content > div.section {
+        justify-content: space-between;
+        flex: 1;
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        font-family: "Bacasime Antique", serif;
+        font-size: 42px;
+        text-transform: uppercase;
+        height: 100vh;
+        background-image: url("./circle.svg");
+        background-repeat: repeat;
+        background-size: 80px 80px;
+        background-color: #fff;
+      }
+      .csr-content > div.section-left {
+        background-color: #fdf7df;
+        justify-content: flex-end;
+        width: 50%;
+      }
+      .csr-content > div.section-left:hover,
+      .csr-content > div.section-right:hover {
+        z-index: 2;
+        background-color: #183875;
+        color: #fff;
+            background-blend-mode: darken;
+      }
+      .csr-content > div.section-right {
+        background-color: #faebb1;
+        justify-content: flex-start;
+      }
+      .csr-content > div h2 {
+        font-weight: 300;
+      }
+      .csr-content > div .content {
+        max-width: 370px;
+      }
+      .csr-content > div img {
+        height: 400px;
+      }
+      .csr .globe-video{
+        opacity: 0;
+      }
+      .csr:hover .globe-video{
+        opacity: 1;
+      }
+      .globe-video {
+        height: 400px !important;
+        width: 400px;
+        overflow: hidden;
+        border-radius: 50%;
+        position: absolute;
+        left: Calc(50% - 195px);
+        top: Calc(50% - 195px);
+        scale: 1;
+        pointer-events: none;
+      }
+      .globe-video video {
+        height: 488px;
+        width: 472px;
+        object-fit: cover;
+        object-position: center;
+        object-position: center;
+        transform: translate(-37px, -27px);
+      }
+      .globe-video:after {
+        content: "";
+        height: 100%;
+        width: 100%;
+        background: #000e662b;
+        position: absolute;
+        top: 0;
+        backdrop-filter: contrast(1.5);
+        box-shadow: 0 0 26px 19px #ffffffa3 inset;
+        border-radius: 50%;
+      }
+
+      .ribbon {
+  width: 100%;
+  overflow: hidden;
+  background: #231F20;
+  padding: 20px 0;
+}
+
+.ribbon__track {
+  display: flex;
+  width: max-content;
+  animation: ribbon-scroll 20s linear infinite;
+}
+
+.ribbon__item {
+    font-size: 26px;
+    font-weight: 100;
+    color: #fff;
+    padding: 0 40px;
+    white-space: nowrap;
+    font-family: "Bacasime Antique", serif;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    background-image: url(star-icon.svg);
+    background-repeat: no-repeat;
+    background-position: right center;
+    padding-right: 100px;
+    background-size: 32px;
+}
+.ribbon__item span{
+  background-color: #efbf04;
+  border-radius: 20px;
+  padding: 4px 12px;
+  color: #231F20;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+}
+@keyframes ribbon-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
     </style>
   </head>
 
@@ -930,7 +1063,7 @@
       <div class="intro-content">
         <div class="intro">
           <div class="intro-video">
-            <div class="hero-text-2" style="text-transform: uppercase;">
+            <div class="hero-text-2" style="text-transform: uppercase">
               <div
                 class="hero-text-2-1"
                 style="display: flex; justify-content: center; gap: 10px"
@@ -943,10 +1076,15 @@
                     overflow: hidden;
                     display: inline-block;
                     white-space: nowrap;
-                       
-    background: linear-gradient(-90deg, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0) 15%, rgba(255, 255, 255, 0) 80%, rgb(255, 255, 255) 100%);
-    border-radius: 40px;
-   
+
+                    background: linear-gradient(
+                      -90deg,
+                      rgb(255, 255, 255) 0%,
+                      rgba(255, 255, 255, 0) 15%,
+                      rgba(255, 255, 255, 0) 80%,
+                      rgb(255, 255, 255) 100%
+                    );
+                    border-radius: 40px;
                   "
                 >
                   That Matter.</span
@@ -1174,6 +1312,52 @@
         </div>
       </div>
     </div>
+    <div class="csr">
+      <div class="csr-content">
+        <div class="globe-video">
+          <video autoplay muted loop playsinline>
+            <source src="globe-video.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <div class="section-left section">
+          <div class="content">
+            <h2>Carbon footprint reduced by</h2>
+            <div class="counter">
+              <span class="couner-numer"></span> 01<span class="counter-label"
+                >tons</span
+              >
+            </div>
+          </div>
+          <img src="environment-icon.png" />
+        </div>
+        <div class="section-right section">
+          <img src="dish-icon.png" height="380px" style="height: 380px" />
+          <div class="content">
+            <h2>Food 
+wastage reduced By</h2>
+            <div class="counter">
+              <span class="couner-numer"></span> 01<span class="counter-label"
+                >tons</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ribbon">
+  <div class="ribbon__track">
+    <div class="ribbon__item"><span>20+</span> Years of Excellence</div>
+    <div class="ribbon__item"><span>18</span> Premium Resorts</div>
+    <div class="ribbon__item"><span>12</span> Sustainable Initiatives</div>
+    <div class="ribbon__item"><span>35k</span> Happy Guests Annually</div>
+
+    <!-- Duplicated for infinite loop -->
+    <div class="ribbon__item"><span>20+</span> Years of Excellence</div>
+    <div class="ribbon__item"><span>18</span> Premium Resorts</div>
+    <div class="ribbon__item"><span>12</span> Sustainable Initiatives</div>
+    <div class="ribbon__item"><span>35k</span> Happy Guests Annually</div>
+  </div>
+</div>
 
     <!-- ================= GSAP ANIMATION ================= -->
     <script>
@@ -1364,40 +1548,49 @@
           start: "top top",
           end: "33% top",
           scrub: 1,
-          
         },
       });
       let textTL = gsap.timeline({
-  scrollTrigger: {
-    trigger: ".intro-section",
-    start: "3% top",
-    end: "33% top",
-    scrub: 1,
-  }
-});
+        scrollTrigger: {
+          trigger: ".intro-section",
+          start: "3% top",
+          end: "33% top",
+          scrub: 1,
+        },
+      });
 
-// 1️⃣ span width grow → 400px (start)
-textTL.fromTo(".hero-text-2-1 span",
-  { maxWidth: "0px", opacity: 1 ,textIndent:"100px"},
-  { maxWidth: 400, opacity: 1, background: "linear-gradient(-90deg, rgb(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 15%, rgba(255, 255, 255, 0) 80%, rgb(255, 255, 255, 0) 100%)",textIndent:"0px", duration: 0.2, ease: "none" }
-);
+      // 1️⃣ span width grow → 400px (start)
+      textTL.fromTo(
+        ".hero-text-2-1 span",
+        { maxWidth: "0px", opacity: 1, textIndent: "100px" },
+        {
+          maxWidth: 400,
+          opacity: 1,
+          background:
+            "linear-gradient(-90deg, rgb(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 15%, rgba(255, 255, 255, 0) 80%, rgb(255, 255, 255, 0) 100%)",
+          textIndent: "0px",
+          duration: 0.2,
+          ease: "none",
+        }
+      );
 
+      // 2️⃣ ".hero-text-2r" rise + fade in
+      textTL.fromTo(
+        ".hero-text-2r",
+        { y: 40, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.2, ease: "none" },
+        "<" // sync with width
+      );
 
-// 2️⃣ ".hero-text-2r" rise + fade in
-textTL.fromTo(".hero-text-2r",
-  { y: 40, opacity: 0 },
-  { y: 0, opacity: 1, duration: 0.2, ease: "none" },
-  "<" // sync with width
-);
+      // 3️⃣ hold (stay visible)
+      textTL.to({}, { duration: 0.4 });
 
-// 3️⃣ hold (stay visible)
-textTL.to({}, { duration: 0.4 });
-
-// 4️⃣ fade out everything
-textTL.to(
-  [".hero-text-2r", ".hero-text-2-1"],
-  { opacity: 0, duration: 0.2, ease: "none" }
-);
+      // 4️⃣ fade out everything
+      textTL.to([".hero-text-2r", ".hero-text-2-1"], {
+        opacity: 0,
+        duration: 0.2,
+        ease: "none",
+      });
       gsap.to(".hero-2", {
         "--stop": "200%",
         ease: "none",
@@ -1732,6 +1925,22 @@ textTL.to(
         .add(gotoClass(3), 0.65)
         .add(gotoClass(4), 0.85)
         .add(gotoClass(5), 1.0);
+
+      gsap.fromTo(
+        ".csr",
+        { y: -400 }, // start above
+        {
+          y: 0, // end at normal position
+          ease: "none",
+          duration: 1,
+          scrollTrigger: {
+            trigger: ".pillars-animation",
+            start: "90% top",
+            end: "bottom bottom",
+            scrub: 1,
+          },
+        }
+      );
     </script>
   </body>
 </html>
