@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Animated Circle Grid</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- Radial fade overlay -->
+<div class="overlay"></div>
+
+<!-- Grid container -->
+<div class="container">
+  <!-- Generate 60 repeating SVG circles -->
+  <!-- You can increase rows/columns in CSS -->
+  <!-- Each circle has 4 layers of timing offsets -->
+  <!-- (Same concept as your triangle stagger animation) -->
+
+  <!-- 60 items -->
+  <!-- You may also auto-generate using JS; here is static HTML -->
+  <!-- Each SVG has 4 animated concentric circles -->
+  <!-- Colors match your HSL palette -->
+
+  <!-- We'll generate 60 SVGs -->
+  <!-- (You can extend for bigger grids) -->
+
+  <!-- Using % for transform ensures scalability -->
+
+  <!-- LOOP 1–60 -->
+  <!-- SVG 1 -->
+  <svg class="shape" viewBox="0 0 100 100">
+    <circle cx="50" cy="50" r="0" stroke="hsl(320,100%,70%)" stroke-width="5" fill="none">
+      <animate attributeName="r" dur="4s" begin="0s" repeatCount="indefinite" from="0" to="70"/>
+    </circle>
+
+    <circle cx="50" cy="50" r="0" stroke="hsl(240,100%,70%)" stroke-width="5" fill="none">
+      <animate attributeName="r" dur="4s" begin="1s" repeatCount="indefinite" from="0" to="70"/>
+    </circle>
+
+    <circle cx="50" cy="50" r="0" stroke="hsl(160,100%,70%)" stroke-width="5" fill="none">
+      <animate attributeName="r" dur="4s" begin="2s" repeatCount="indefinite" from="0" to="70"/>
+    </circle>
+
+    <circle cx="50" cy="50" r="0" stroke="hsl(80,100%,70%)" stroke-width="5" fill="none">
+      <animate attributeName="r" dur="4s" begin="3s" repeatCount="indefinite" from="0" to="70"/>
+    </circle>
+  </svg>
+
+  <!-- Duplicate this SVG 60 times -->
+  <!-- Instead of pasting manually, I’ll generate for you below: -->
+  <!-- START AUTO-GENERATED 60 SVG GRID -->
+
+  <!-- JS-GENERATED VERSION INCLUDED BELOW TO KEEP HTML CLEAN -->
+</div>
+
+<!-- JS to auto-generate 60 circle SVGs cleanly -->
+<script>
+const container = document.querySelector('.container');
+for (let i = 1; i < 60; i++) {
+  container.innerHTML += `
+    <svg class="shape" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="0" stroke="hsl(320,100%,70%)" stroke-width="5" fill="none">
+        <animate attributeName="r" dur="4s" begin="0s" repeatCount="indefinite" from="0" to="70"/>
+      </circle>
+
+      <circle cx="50" cy="50" r="0" stroke="hsl(240,100%,70%)" stroke-width="5" fill="none">
+        <animate attributeName="r" dur="4s" begin="1s" repeatCount="indefinite" from="0" to="70"/>
+      </circle>
+
+      <circle cx="50" cy="50" r="0" stroke="hsl(160,100%,70%)" stroke-width="5" fill="none">
+        <animate attributeName="r" dur="4s" begin="2s" repeatCount="indefinite" from="0" to="70"/>
+      </circle>
+
+      <circle cx="50" cy="50" r="0" stroke="hsl(80,100%,70%)" stroke-width="5" fill="none">
+        <animate attributeName="r" dur="4s" begin="3s" repeatCount="indefinite" from="0" to="70"/>
+      </circle>
+    </svg>
+  `;
+}
+</script>
+
+</body>
+</html>
