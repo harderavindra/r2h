@@ -367,7 +367,113 @@
         <div class="ribbon__item"><span>35k</span> Happy Guests Annually</div>
       </div>
     </div>
+    <div class="social-container">
+  <div class="social-content">
 
+    <div class="section-header">
+   
+    <h2>Our Journey</h2>
+    <h3>Your Inspiration</h3>
+
+    </div>
+
+    <div class="post-scroller">
+      <div class="post-track">
+        <img src="drink-serve.jpg" alt="">
+        <img src="2.png" alt="">
+        <video autoplay muted loop playsinline>
+          <source src="dish-video.mp4" type="video/mp4" />
+        </video>
+        <video autoplay muted loop playsinline>
+          <source src="insta3.mp4" type="video/mp4" />
+        </video>
+        <video autoplay muted loop playsinline>
+          <source src="insta5.mp4" type="video/mp4" />
+        </video>
+       
+        <img src="cocktail.jpg" alt="">
+        <video autoplay muted loop playsinline>
+          <source src="shef.mp4" type="video/mp4" />
+        </video>
+       <img src="drink-serve.jpg" alt="">
+        <img src="2.png" alt="">
+        <video autoplay muted loop playsinline>
+          <source src="dish-video.mp4" type="video/mp4" />
+        </video><img src="drink-serve.jpg" alt="">
+        <img src="2.png" alt="">
+        <video autoplay muted loop playsinline>
+          <source src="dish-video.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="social-cta">
+  <div class="social-cta-container">
+  <div class="social-cta-content">
+  Stay connected with the moments that define R2H — from design unveilings and dining stories to sustainability milestones and franchise launches.
+  </div>
+  <p>@R2H.Ventures on Instagram</p>
+  <button>Follow Us  </button>
+  </div>
+</div>
+<div class="page-footer">
+  <h2>Hall of Fame</h2>
+  <div class="footer-awards">
+    <div class="award-sliders">
+    <div class="award-list">
+      <div class="award">
+        <img src="drink-serve.jpg" />
+        <img src="drink-serve.jpg" />
+        <img src="drink-serve.jpg" />
+        <img src="drink-serve.jpg" />
+        <img src="drink-serve.jpg" />
+      </div>
+      <div class="award">
+        <img src="drink-serve.jpg" />
+        <img src="drink-serve.jpg" />
+        <img src="drink-serve.jpg" />
+        <img src="drink-serve.jpg" />
+        <img src="drink-serve.jpg" />
+      </div>
+       <div class="award">
+        <img src="drink-serve.jpg" />
+        <img src="drink-serve.jpg" />
+        <img src="drink-serve.jpg" />
+        <img src="drink-serve.jpg" />
+        <img src="drink-serve.jpg" />
+      </div>
+       <div class="award">
+        <img src="drink-serve.jpg" />
+        <img src="drink-serve.jpg" />
+        <img src="drink-serve.jpg" />
+        <img src="drink-serve.jpg" />
+        <img src="drink-serve.jpg" />
+      </div>
+       <div class="award">
+        <img src="drink-serve.jpg" />
+        <img src="drink-serve.jpg" />
+        <img src="drink-serve.jpg" />
+        <img src="drink-serve.jpg" />
+        <img src="drink-serve.jpg" />
+      </div>
+    </div>
+    <div class="award-text">
+      <p>Award 1</p>
+      <p>Award 2</p>
+      <p>Award 3</p>
+      <p>Award 4</p>
+      <p>Award 5</p>
+    </div>
+    <p>Celebrating the people, projects, and partnerships that power R2H.
+</p>
+    </div>
+  </div>
+  <div class="footer-links">
+    <ul><li><a href="">Events</a></li><li><a href="">Events</a></li><li><a href="">Events</a></li></ul>
+    <ul><li><a href="">Events</a></li><li><a href="">Events</a></li><li><a href="">Events</a></li></ul>
+  </div>
+</div>
     <!-- ================= GSAP ANIMATION ================= -->
     <script>
       const header = document.querySelector(".page-header");
@@ -951,6 +1057,91 @@
         }
       );
         feather.replace();
+
+     const track = document.querySelector(".post-track");
+const items = [...track.children];
+
+// detect width dynamically
+let itemWidth = items[0].offsetWidth + 40;  
+
+let index = 0;
+let scrolling = false;
+
+// apply active center element
+function setActive() {
+  items.forEach(i => i.classList.remove("active"));
+
+  let center = index + 2; // 5 visible → center item is (index + 2)
+  if (center < items.length) {
+    items[center].classList.add("active");
+  }
+}
+
+setActive();
+
+
+    const socialContainer = document.querySelector(".post-track");   // the long horizontal element
+    const parent = document.querySelector(".social-content");  // sticky section
+
+    // Calculate scroll width
+    const scrollAmount = () => socialContainer.scrollWidth - window.innerWidth;
+   gsap.to(socialContainer, {
+  x: () => -scrollAmount(),
+  ease: "none",
+
+  scrollTrigger: {
+    trigger: parent,
+    start: "top top",
+    end: () => "+=" + scrollAmount(),
+    scrub: 1,
+    pin: true,
+    anticipatePin: 1,
+    invalidateOnRefresh: true,
+
+    onUpdate: (self) => {
+      const progress = self.progress;
+
+      // 1) Under 10% → hide
+      if (progress < 0.05) {
+        socialContainer.classList.remove("visible");
+        return;
+      }
+
+      // 2) Between 10% and 15% → show (but no highlight)
+      if (progress >= 0.10 && progress < 0.15) {
+        socialContainer.classList.add("visible");
+        return;
+      }
+
+      // 3) After 15% → continue scroll animation normally
+      if (progress >= 0.05) {
+        socialContainer.classList.add("visible");
+      }
+    }
+  }
+});
+
+const text = document.querySelector(".social-cta-content");
+const words = text.innerText.split(" ");
+
+text.innerHTML = words
+  .map(word => `<span class="word">${word}&nbsp;</span>`)
+  .join("");
+  gsap.fromTo(".word",
+  { opacity: .3 },
+  {
+    opacity: 1,
+   
+    stagger: 0.05,      // reveal speed per word
+    ease: "power1.out",
+    scrollTrigger: {
+      trigger: ".social-cta",
+      start: "top 80%",
+      end: "top 20%",
+      scrub: 1
+    }
+  }
+);
     </script>
   </body>
 </html>

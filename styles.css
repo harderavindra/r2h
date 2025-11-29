@@ -1063,5 +1063,210 @@ img.circle-d {
     transform: translateX(-50%);
   }
 }
+.post-track > * {
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+.post-track > * {
+width: calc(20% - 40px);
+  height: 100%;
+  opacity: 1;
+  flex-shrink: 0;
+  border-radius: 12px;
+  object-fit: cover;
+  transition: all 1s ease-in-out;
+}
 
+.post-track > *.active-center {
 
+    
+}
+.post-track > *:nth-child(1), .post-track > *:nth-child(5) {
+    transform: translate(0px, 150px);
+}
+.post-track > *:nth-child(2), .post-track > *:nth-child(4) {
+    transform: translate(0px, 50px);
+}
+.post-track.visible > *:nth-child(1), .post-track.visible > *:nth-child(5) ,.post-track.visible > *:nth-child(2), .post-track.visible > *:nth-child(4){
+    transform: translate(0px, 0px);
+}
+
+.social-container {
+  width: 100%;
+  padding: 40px 0;
+ 
+  position: relative;
+}
+.section-header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0;
+    padding: 60px 0px;
+}
+.section-header h2 {
+    font-family: 'Bacasime Antique', serif;
+    font-size: 40px;
+    margin: 0;
+    text-transform: uppercase;
+    color: #efbf04;
+    font-weight: 400;
+}
+.section-header h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 54px;
+    margin: 0;
+    font-weight: 400;
+    color: #555;
+}
+.social-content {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+   height: 200vh;
+  flex-direction: column;
+  height: 100vh;
+    position: sticky;
+    top: 0;
+}
+
+.post-scroller {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.post-track {
+   display: flex;
+  align-items: center;
+  gap: 40px;
+  height: 380px;
+  will-change: transform; /* smoother */
+}
+
+.post-track img, .post-track video {
+    height: 100%;
+    border-radius: 10px;
+    flex-shrink: 0;
+    width: calc(20% - 40px);
+    object-fit: cover;
+    object-position: center;
+}
+
+.social-cta {
+   
+    
+}
+
+.social-cta-content .word {
+  display: inline-block;
+  opacity: .5;
+}
+.social-cta-container {
+    max-width: 980px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 60vh;
+    gap: 20px;
+    align-items: center;
+    padding: 60px 0;
+}
+
+.social-cta-content {
+    text-align: center;
+    font-family: 'Bacasime Antique', serif;
+    font-size: 42px;
+    text-transform: uppercase;
+}
+ .social-cta-container p{
+    text-align: center;
+    font-size: 20px;
+}
+.social-cta-container button {
+   font-family: "Bacasime Antique", serif;
+    border-radius: 40px;
+    display: inline-block;
+    width: 240px;
+    text-align: center;
+    background:#000513;
+    border: 0;
+    line-height: 60px;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.page-footer {
+    background-color: #1D1C1C;
+    padding: 80px 0;
+
+}
+.footer-awards {
+    max-width: 1140px;
+    margin: 0 auto;
+    background-image: url(award-bg.png);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: contain;
+    box-shadow: 0 0 79px 31px #1d1c1c inset;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+        min-height: 400px;
+        position: relative;
+        z-index: 0;
+}
+.page-footer h2{
+    font-size: 72px;
+    color: #efbf04;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0;
+   font-family: "Bacasime Antique", serif;
+   font-weight: 400;
+}
+
+.award-list {
+    display: flex;
+    gap: 0;
+    padding-top: 60px;
+}
+.award {
+    width: 140px;
+    height: 90px;
+    position: relative;
+    border: 7px solid #fff;
+    box-shadow: 0 0 24px 0 black;
+}
+.award:nth-child(3) {
+    scale: 1.4;
+    z-index: 5;
+}
+.award:nth-child(2), .award:nth-child(4) {
+    z-index: 2;
+    scale: 1.2;
+}
+.award img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    object-position: center;
+}
+.award-text {
+    position: relative;
+    width: 100%;
+    padding: 60px 0 20px;
+}
+.award-text p {
+    position: absolute;
+    width: 100%;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+}
