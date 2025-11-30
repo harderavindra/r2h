@@ -16,6 +16,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/MotionPathPlugin.min.js"></script>
+    <script src="award.js"></script>
   </head>
 
   <body>
@@ -134,7 +135,10 @@
           <source src="hotel.mp4" type="video/mp4" />
         </video>
       </div>
-      <div class="about-block"></div>
+      <div class="about-header">
+      <h2 >Redefining the Future of Conscious Hospitality</h2>
+      </div>
+     
       <div class="about-block about-block-1">
         <div class="about-content">
           <h2>Conscious Hospitality</h2>
@@ -184,28 +188,20 @@
           />
         </div>
         <div class="about-content">
-          <h2>Conscious Hospitality</h2>
+          <h2>Experience Ecosystem</h2>
           <p>
-            R2H Ventures is redefining the landscape of modern hospitality—where
-            luxury is mindful, meaningful, and masterfully curated. We craft
-            experiences that linger long after the moment has passed, infusing
-            purpose into every touchpoint. With R2H, indulgence is reimagined as
-            a celebration of connection, culture, and responsible living.
+            Our portfolio spans _themed dining destinations, sustainable heritage retreats_, wellness-led mobile kitchens through Wheels of Health, and an intelligent, ethically designed food supply chain. Each concept blends eco-conscious practices with sensorial storytelling, transforming dining and travel into journeys of discovery. Every space, every flavour, and every detail is thoughtfully curated to delight guests while honouring the planet.
           </p>
-          <span>Immersive</span>
+          <span>Impactful</span>
         </div>
       </div>
       <div class="about-block about-block-3">
         <div class="about-content">
-          <h2>Conscious Hospitality</h2>
+          <h2>Intelligent Operations</h2>
           <p>
-            R2H Ventures is redefining the landscape of modern hospitality—where
-            luxury is mindful, meaningful, and masterfully curated. We craft
-            experiences that linger long after the moment has passed, infusing
-            purpose into every touchpoint. With R2H, indulgence is reimagined as
-            a celebration of connection, culture, and responsible living.
+            Driven by our scalable FOCO (Franchise-Owned, Company-Operated) model, R2H integrates premium design with cutting-edge digital efficiency. IoT-enabled kitchens, AI-powered inventory, and real-time analytics optimise every layer of operations—from resource stewardship to guest satisfaction. Rooted in sustainability, inclusivity, and innovation, we *proudly align with UN SDGs 8, 12, 13 and 17, *shaping a future-ready blueprint for hospitality that is transparent, transformative, and truly sustainable.
           </p>
-          <span>Immersive</span>
+          <span>Intelligent</span>
         </div>
         <div class="about-graphic" style="position: relative; z-index: -1">
           <video
@@ -258,7 +254,7 @@
         <img src="circle-3d.png" alt="circle-3d" class="circle-d d-4" />
         <div class="pillars-inner-container">
           <div class="images-container">
-            <h1 class="title">Health on Wheels</h1>
+            <h1 class="title">Our Strategic Pillars</h1>
             <div class="cursor-button">
               <svg viewBox="0 0 300 300">
                 <path
@@ -282,25 +278,25 @@
             <div class="images-list">
               <div class="slide">
                 <img src="s1.png" alt="About Image 1" />
-                <h4>Heritage Resorts</h4>
+                <h4>Heritage<br>Resorts</h4>
               </div>
               <div class="slide">
                 <video autoplay muted loop playsinline>
                   <source src="shef.mp4" type="video/mp4" />
                 </video>
-                <h4>Themed Restaurants</h4>
+                <h4>Themed<br>Restaurants</h4>
               </div>
               <div class="slide">
                 <video autoplay muted loop playsinline>
                   <source src="van-video.mp4" type="video/mp4" />
                 </video>
-                <h4>Health on Wheels</h4>
+                <h4>Health<br>on Wheels</h4>
               </div>
               <div class="slide">
                 <video autoplay muted loop playsinline>
                   <source src="drink-serve2.mp4" type="video/mp4" />
                 </video>
-                <h4>Smart Food Supply Chain</h4>
+                <h4>Smart Food<br>Supply Chain</h4>
               </div>
             </div>
           </div>
@@ -410,8 +406,10 @@
       </div>
     </div>
     <div class="page-footer">
-      <h2>Hall of Fame</h2>
+      <h2 >Hall of Fame</h2>
       <div class="footer-awards">
+        <div class="shine"></div>
+        <div class="glow"></div>
         <div class="award-sliders">
           <div class="award-list">
             <div class="award">
@@ -451,6 +449,8 @@
               <img src="award5.png" />
             </div>
           </div>
+          <div class="award-controllers"><button class="award-prev">←</button>
+<button class="award-next">→</button></div>
           <div class="award-text">
             <p>Award 1</p>
             <p>Award 2</p>
@@ -1133,10 +1133,10 @@
         .join("");
       gsap.fromTo(
         ".word",
-        { opacity: 0.3 },
+        { opacity: 0.4, color:"#efbf04" },
         {
           opacity: 1,
-
+ color:"#000",
           stagger: 0.05, // reveal speed per word
           ease: "power1.out",
           scrollTrigger: {
@@ -1148,30 +1148,59 @@
         }
       );
 
-const awards = document.querySelector(".award-list");
-const awardText = document.querySelector(".award-text");
-let current = 1;           // start at 1
-const totalslides = 5;           // total states
+// PAGE-FOOTER main animation
+gsap.fromTo(".page-footer", 
+  { y: -400, opacity: 1 }, 
+  {
+    y: 0,
+   
+    duration: 4,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: ".page-footer",
+      start: "top top",      // 5% before entering view
+      end: "bottom bottom",        // until reaches 10%
+      scrub: 1
+    }
+  }
+);
 
-// initial
-awards.classList.add(`active-${current}`);
-awardText.classList.add(`active-${current}`);
+// ::after animation (needs CSSRulePlugin OR normal proxy div)
+gsap.fromTo(".footer-awards .shine", 
+  { opacity: .4, y: -100 },
+  { 
+    opacity: .8,
+    y: 0,
+    duration: 1,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: ".page-footer",
+      start: "30% top",
+      end: "70% botom",
+      scrub: 1
+    }
+  }
+);
+// ::after animation (needs CSSRulePlugin OR normal proxy div)
+let glowTl = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".page-footer",
+    start: "40% top",
+    end: "60% bottom",
+    scrub: 1
+  }
+});
 
-setInterval(() => {
+// PHASE 1: Glow appears (fade in)
+glowTl.fromTo(".footer-awards .glow",
+  { opacity: 0, y: -100 },
+  { opacity: .2, y: 0, ease: "power2.out" }
+)
 
-  // remove old
-  awards.classList.remove(`active-${current}`);
-  awardText.classList.remove(`active-${current}`);
-
-  // move to next
-  current = current + 1;
-  if (current > totalslides) current = 1;  // loop back to 1
-
-  // add new
-  awards.classList.add(`active-${current}`);
-  awardText.classList.add(`active-${current}`);
-
-}, 3000);
+// PHASE 2: Glow fades out
+glowTl.to(".footer-awards .glow",
+  { opacity: 0, y: -60, ease: "power2.in" }
+);
     </script>
   </body>
 </html>

@@ -150,7 +150,20 @@ body {
   right: calc(50% - 150px);
   border: 6px solid #efbf04;
 }
-
+.about-header {
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+.about-header h2{
+  text-transform: uppercase;
+  font-size: 60px;
+  max-width: 980px;
+  text-align: center;
+  font-family: "Bacasime Antique", serif ;
+  font-weight: 400;
+}
 .about-section .hero-circle {
   overflow: hidden;
 }
@@ -1024,6 +1037,8 @@ img.circle-d {
   overflow: hidden;
   background: #231f20;
   padding: 20px 0;
+  position: relative;
+  z-index: 2;
 }
 
 .ribbon__track {
@@ -1093,6 +1108,7 @@ width: calc(20% - 40px);
 .social-container {
   width: 100%;
   padding: 40px 0;
+      background: #fff;
  
   position: relative;
 }
@@ -1154,8 +1170,9 @@ width: calc(20% - 40px);
 }
 
 .social-cta {
-   
-    
+    z-index: 3;
+    position: relative;
+    background: #fff;
 }
 
 .social-cta-content .word {
@@ -1170,7 +1187,7 @@ width: calc(20% - 40px);
     min-height: 60vh;
     gap: 20px;
     align-items: center;
-    padding: 60px 0;
+    padding: 100px 0;
 }
 
 .social-cta-content {
@@ -1201,7 +1218,7 @@ width: calc(20% - 40px);
     background-color: #1D1C1C;
     padding: 80px 0;
     position: relative;
-    z-index: 3;
+    z-index: 1;
 
 }
 .footer-awards {
@@ -1221,6 +1238,31 @@ width: calc(20% - 40px);
         position: relative;
         z-index: 0;
 }
+.footer-awards .shine {
+    content: "";
+    max-width: 1140px;
+    width: 100%;
+    margin: 0 auto;
+    background-image: url(award-bg.png);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: contain;
+    box-shadow: 0 0 79px 31px #1d1c1c inset;
+    min-height: 580px;
+    position: absolute;
+    z-index: -1;
+ 
+    opacity: .5;
+}
+.footer-awards .glow {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent 9%, #ffb300 34%, transparent 24%, transparent 47%, #ffb300 90%, transparent 47%);
+    filter: blur(41px);
+    position: absolute;
+    
+    backdrop-filter: revert;
+}
 .award-tagline {
     color: rgba(255, 255, 255, 0.5);
     text-align: center;
@@ -1239,8 +1281,9 @@ width: calc(20% - 40px);
     margin: 0;
    font-family: "Bacasime Antique", serif;
    font-weight: 400;
+   position: relative;
+   z-index: 2;
 }
-
 .award-list {
     display: flex;
     gap: 0;
@@ -1250,17 +1293,25 @@ width: calc(20% - 40px);
     width: 140px;
     height: 90px;
     position: relative;
-    border: 7px solid #fff;
+    border: 7px solid transparent;
     box-shadow: 0 0 24px 0 black;
     overflow: hidden;
+    border-radius: 70px;
+        filter: opacity(0.5);
+     background: 
+   linear-gradient(#000, #000) padding-box, linear-gradient(135deg, #88610a 18%, #ffe887 24%, #88610a 55%, #ffe887 65%, #d4a741 72%) border-box, linear-gradient(#000 71%, #000) padding-box
 }
 .award:nth-child(3) {
     scale: 1.4;
     z-index: 6;
+        filter: opacity(1);
+        transform: translateY(40px);
 }
 .award:nth-child(2), .award:nth-child(4) {
     z-index: 5;
     scale: 1.2;
+      transform: translateY(20px);
+        filter: opacity(0.7);
 }
 .award img {
     width: 100%;
@@ -1274,95 +1325,7 @@ width: calc(20% - 40px);
 
 
 
-/* ============================================
-   ACTIVE 1
-===============================================*/
-.award-list.active-1 .award:nth-child(1) img:nth-child(4),
-.award-list.active-1 .award:nth-child(2) img:nth-child(5),
-.award-list.active-1 .award:nth-child(3) img:nth-child(1),
-.award-list.active-1 .award:nth-child(4) img:nth-child(2),
-.award-list.active-1 .award:nth-child(5) img:nth-child(3){ left: 0; z-index: 2; transition: all 1s;  }
 
-.award-list.active-2 .award:nth-child(1) img:nth-child(4),
-.award-list.active-2 .award:nth-child(2) img:nth-child(5),
-.award-list.active-2 .award:nth-child(3) img:nth-child(1),
-.award-list.active-2 .award:nth-child(4) img:nth-child(2),
-.award-list.active-2 .award:nth-child(5) img:nth-child(3){ left: -100%; z-index: 2; transition: all 1s;  }
-
-
-/* ============================================
-   ACTIVE 2
-===============================================*/
-.award-list.active-2 .award:nth-child(1) img:nth-child(5),
-.award-list.active-2 .award:nth-child(2) img:nth-child(1),
-.award-list.active-2 .award:nth-child(3) img:nth-child(2),
-.award-list.active-2 .award:nth-child(4) img:nth-child(3),
-.award-list.active-2 .award:nth-child(5) img:nth-child(4){ left:0; z-index: 2;  transition: all 1s;}
-
-.award-list.active-3 .award:nth-child(1) img:nth-child(5),
-.award-list.active-3 .award:nth-child(2) img:nth-child(1),
-.award-list.active-3 .award:nth-child(3) img:nth-child(2),
-.award-list.active-3 .award:nth-child(4) img:nth-child(3),
-.award-list.active-3 .award:nth-child(5) img:nth-child(4){ left:-100%; z-index: 2;  transition: all 1s;}
-
-
-
-/* ============================================
-   ACTIVE 3
-===============================================*/
-.award-list.active-3 .award:nth-child(1) img:nth-child(1),
-.award-list.active-3 .award:nth-child(2) img:nth-child(2),
-.award-list.active-3 .award:nth-child(3) img:nth-child(3),
-.award-list.active-3 .award:nth-child(4) img:nth-child(4),
-.award-list.active-3 .award:nth-child(5) img:nth-child(5){ left:0; z-index: 2;  transition: all 1s; }
-
-.award-list.active-4 .award:nth-child(1) img:nth-child(1),
-.award-list.active-4 .award:nth-child(2) img:nth-child(2),
-.award-list.active-4 .award:nth-child(3) img:nth-child(3),
-.award-list.active-4 .award:nth-child(4) img:nth-child(4),
-.award-list.active-4 .award:nth-child(5) img:nth-child(5){ left:-100%; z-index: 2;  transition: all 1s; }
-
-/* ============================================
-   ACTIVE 4
-===============================================*/
-.award-list.active-4 .award:nth-child(1) img:nth-child(2),
-.award-list.active-4 .award:nth-child(2) img:nth-child(3),
-.award-list.active-4 .award:nth-child(3) img:nth-child(4),
-.award-list.active-4 .award:nth-child(4) img:nth-child(5),
-.award-list.active-4 .award:nth-child(5) img:nth-child(1){ left:0; z-index: 2; transition: all 1s;  }
-
-.award-list.active-5 .award:nth-child(1) img:nth-child(2),
-.award-list.active-5 .award:nth-child(2) img:nth-child(3),
-.award-list.active-5 .award:nth-child(3) img:nth-child(4),
-.award-list.active-5 .award:nth-child(4) img:nth-child(5),
-.award-list.active-5 .award:nth-child(5) img:nth-child(1){ left:-100%; z-index: 2; transition: all 1s;  }
-
-/* ============================================
-   ACTIVE 5
-===============================================*/
-.award-list.active-5 .award:nth-child(1) img:nth-child(3),
-.award-list.active-5 .award:nth-child(2) img:nth-child(4),
-.award-list.active-5 .award:nth-child(3) img:nth-child(5),
-.award-list.active-5 .award:nth-child(4) img:nth-child(1),
-.award-list.active-5 .award:nth-child(5) img:nth-child(2){ left:0; z-index: 2;  transition: all 1s; }
-
-.award-list.active-1 .award:nth-child(1) img:nth-child(3),
-.award-list.active-1 .award:nth-child(2) img:nth-child(4),
-.award-list.active-1 .award:nth-child(3) img:nth-child(5),
-.award-list.active-1 .award:nth-child(4) img:nth-child(1),
-.award-list.active-1 .award:nth-child(5) img:nth-child(2){ left:-100%; z-index: 2;  transition: all 1s; }
-
-.award-text p {opacity: 0; transition: all .5s ease-in;}
-.award-text.active-1 p:nth-child(1),
-.award-text.active-2 p:nth-child(2),
-.award-text.active-3 p:nth-child(3),
-.award-text.active-4 p:nth-child(4),
-.award-text.active-5 p:nth-child(5)
-
-{
-    opacity: 1;
-    transition: all 1s ease-in .5s;
-}
 .award-text {
     position: relative;
     width: 100%;
@@ -1374,6 +1337,17 @@ width: calc(20% - 40px);
     color: #fff;
     width: 100%;
     text-align: center;
+}
+.award-controllers {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 30px;
+}
+.award-controllers button{
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    background: #efbf049c;
 }
 .footer-links {
     max-width: 1140px;
@@ -1389,6 +1363,7 @@ width: calc(20% - 40px);
     list-style: none;
     text-transform: uppercase;
     margin: 0;
+    padding: 0;
 }
 .footer-links ul li {
     border-right: 1px solid #fff;
