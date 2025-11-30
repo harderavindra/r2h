@@ -825,6 +825,16 @@
       // });
 
       gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
+     gsap.to(".about-header", {
+  opacity: 0,
+  ease: "none",
+  scrollTrigger: {
+    trigger: ".about-section",
+    start: "top 0%",   // enters view
+    end: "top 70%",     // fades for same 20% distance
+    scrub: 1,
+  },
+});
 
       gsap.to(".hero-circle", {
         ease: "none",
