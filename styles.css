@@ -519,11 +519,12 @@ img.circle-d {
   pointer-events: none;
   opacity: 1;
   transform: translate(-50%, -50%);
+  letter-spacing: 3px;
 
   z-index: 99999 !important;
   /* border: 20px solid black; */
   box-sizing: border-box;
-  box-shadow: 0 0px 0px 30px black inset;
+  box-shadow: 0 0px 0px 30px rgb(0 0 0 / 70%) inset;
   padding: 10px;
   background: #ffd7003b;
 }
@@ -548,26 +549,27 @@ img.circle-d {
   fill: transparent;
 }
 .cursor-button svg text {
-  font-size: 32px;
-  font-weight: 400;
-  color: #fff;
-  fill: #fff;
-  display: none;
+    font-size: 60px;
+    font-weight: 400;
+    color: #fff;
+    fill: #fff;
+    display: none;
+    font-family: "Bacasime Antique", serif;
+    letter-spacing: 3px;
+    display: none;
+
 }
-.current-4 .cursor-button,
-.current-5 .cursor-button {
-  display: none;
-}
+
 .current-0 .cursor-button svg text.text1 {
   display: block;
 }
 .current-1 .cursor-button svg text.text2 {
   display: block;
 }
-.current-2 .cursor-button svg text.text2 {
+.current-2 .cursor-button svg text.text4 {
   display: block;
 }
-.current-3 .cursor-button svg text.text2 {
+.current-3 .cursor-button svg text.text4{
   display: block;
 }
 .pillars-inner-container {
