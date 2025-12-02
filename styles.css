@@ -1318,6 +1318,9 @@ width: calc(20% - 40px);
 .footer-links ul li {
     border-right: 1px solid #fff;
 }
+.footer-links ul li:last-child {
+    border: 0;
+}
 .footer-links ul a {
     color: #fff;
     text-decoration: none;
