@@ -192,7 +192,7 @@ body {
 }
 .images-container {
   position: relative;
-  height: 480px;
+  height: 70vh;
   width: 85%;
   display: block;
 }
