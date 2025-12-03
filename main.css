@@ -194,7 +194,7 @@
 
 
 .pillars-animation {
-  height: 300vh;
+  height: 400vh;
   position: relative;
   overflow: visible;
   background: linear-gradient(90deg, #0d1324 0%, #0e1a3f 66%, #000513 100%);
@@ -246,4 +246,64 @@ span.icon:after {
   100% {
     transform: translateY(0px)  scaleY(.6);
   }
+}
+
+
+.dot-controller {
+    position: sticky;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+.dot-parent {
+    position: absolute;
+    overflow: visible;
+    right: 40px;
+    top: 0;
+    height: 100%;
+}
+.dot-parent .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #bbb;
+  cursor: pointer;
+  transition: transform 0.3s, background 0.3s;
+      background: rgb(255 255 255 / 20%);
+      /* border:2px solid #0e1a3e; */
+}
+
+.dot-controller .dot[data-step="0"],.dot-controller .dot[data-step="5"] {
+    width: 24px;
+    border-radius: 3px;
+    height: 10px;
+}
+
+.dot-parent .dot.active {
+  transform: scale(1.4);
+  background: #111;
+}
+.current-0 .dot-controller  .dot[data-step="0"]{
+  background-color: #efbf04;
+}
+.current-1 .dot-controller  .dot[data-step="1"]{
+  background-color: #efbf04;
+}
+.current-2 .dot-controller  .dot[data-step="2"]{
+  background-color: #efbf04;
+}
+.current-3 .dot-controller  .dot[data-step="3"]{
+  background-color: #efbf04;
+}
+.current-4 .dot-controller  .dot[data-step="4"]{
+  background-color: #efbf04;
+}
+.current-5 .dot-controller  .dot[data-step="5"]{
+  background-color: #efbf04;
 }

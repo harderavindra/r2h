@@ -13,6 +13,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/MotionPathPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollToPlugin.min.js"></script>
+
     <script src="award.js"></script>
 </head>
 
@@ -215,18 +217,29 @@
 
     </div>
     <div class="pillars-animation" style="background-color: #fff; z-index: 3; position: relative">
+      <div class="dot-parent">
+      <div class="dot-controller">
+  <!-- <div class="dot" data-step="8"></div> -->
+  <div class="dot" data-step="0"></div>
+  <div class="dot" data-step="1"></div>
+  <div class="dot" data-step="2"></div>
+  <div class="dot" data-step="3"></div>
+  <div class="dot" data-step="4"></div>
+  <div class="dot" data-step="5"></div>
+</div>
+</div>
     <div class="pillars-content">
       <div class="pillars-scroller-container">
         <div class="pillars-scroller-content">
           <div class="pillars-scroller">
             
-            <h2><span class="dot"></span> Themed Restaurants</h2>
+            <h2><span class="dot">1</span> Themed Restaurants</h2>
           
-            <h2><span class="dot"></span> Heritage Resorts</h2>
+            <h2><span class="dot">2</span> Heritage Resorts</h2>
            
-            <h2><span class="dot"></span> Health on Wheels</h2>
+            <h2><span class="dot">3</span> Health on Wheels</h2>
             
-            <h2><span class="dot"></span> Smart Food Supply Chain</h2>
+            <h2><span class="dot">4</span> Smart Food Supply Chain</h2>
           </div>
         </div>
       </div>
@@ -234,9 +247,14 @@
       <img src="circle-3d.png" alt="circle-3d" class="circle-d d-2" />
       <img src="circle-3d.png" alt="circle-3d" class="circle-d d-3" />
       <img src="circle-3d.png" alt="circle-3d" class="circle-d d-4" />
+       <div class="first-screen">
+              <h1>Our Strategic Pillars</h1>
+              <p>At R2H, hospitality is about creating meaningful change  connecting people, planet, and progress through innovation and intent.Guided by the UN Sustainable Development Goals (12, 13, 8 & 17), we craft experiences that are purposeful, efficient, and transformative, built on three core values:
+</p>
+            </div>
       <div class="pillars-inner-container">
+        
         <div class="images-container">
-          <h1 class="title">Our Strategic Pillars</h1>
           <div class="cursor-button">
             <svg viewBox="0 0 400 400">
               <path id="circlePath" d="M200,200 m-170,0 
@@ -266,6 +284,7 @@
           </div>
 
           <div class="images-list">
+           
             <div class="slide">
               <img src="s1.png" alt="About Image 1" />
               <p>Immersive dining destinations that blend local flavours, cultural narratives, and sensory design.</p>
@@ -929,34 +948,31 @@ tl3.fromTo(".about-circle3",
 );
 
 // PART 2 – Circle 3 moves downward (60% → bottom)
-tl3.to(".about-circle3",
-    { y: 700, ease: "none", duration: 0.7 }
-);
-          
+tl3.to(".about-circle3", {
+  y: 700,
+  ease: "none",
+  duration: 0.7,
+
+});
 
 
- const container = document.querySelector(".pillars-animation");
+const container = document.querySelector(".pillars-animation");
 let lastIndex = null;
 
-// 6 steps + 1 "none"
-const totalSteps = 7;
-const segment = 1 / (totalSteps); // 1/7 = ~0.1428
-
 function applyStep(step, p) {
-
-  if (step === lastIndex) return;
+  if (step === lastIndex) return; // no change → skip
   lastIndex = step;
 
-  // Remove old steps
-  container.className = container.className
-    .split(" ")
-    .filter(c => !c.startsWith("current-"))
-    .join(" ");
+  // Remove ONLY current-* classes
+  container.classList.forEach(cls => {
+    if (cls.startsWith("current-")) container.classList.remove(cls);
+  });
 
+  // Add new step class
   container.classList.add(`current-${step}`);
 
   console.log(
-    `%cSTEP → ${step} (progress ${(p*100).toFixed(1)}%)`,
+    `%cSTEP → ${step} (progress ${p.toFixed(1)}%)`,
     "color:#03A9F4;font-weight:bold;"
   );
 }
@@ -964,34 +980,68 @@ function applyStep(step, p) {
 gsap.to(container, {
   scrollTrigger: {
     trigger: ".pillars-animation",
-    start: "0% top",
+    start: "-10% top",
     end: "bottom top",
     scrub: 1,
 
     onUpdate(self) {
-      let p = self.progress; // 0 → 1
-
+      const p = self.progress * 100;
+      console.log(p)
       let step;
 
-      // NEGATIVE RANGE (-20% to 0%)
-      if (self.start < 0) {
-        step = "none";
-      }
-
-      // MAIN RANGE — divide evenly
-      if (p < segment) step = 0;  
-      else if (p < segment * 2) step = 1;
-      else if (p < segment * 2) step = 2;
-      else if (p < segment * 3) step = 3;
-      else if (p < segment * 4) step = 4;
-      else if (p < segment * 5) step = 5;
-      else step = 6; // last segment
+      if (p < 5) step = 8;
+      else if (p < 10) step = 0;
+      else if (p < 20) step = 1;
+      else if (p < 40) step = 2;
+      else if (p < 60) step = 3;
+      else if (p < 80) step = 4;
+      else step = 5;
 
       applyStep(step, p);
     }
   }
 });
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+const triggerElem = document.querySelector(".pillars-animation");
+const controllerDots = document.querySelectorAll(".dot");
 
+const st = ScrollTrigger.create({
+  trigger: triggerElem,
+  start: "-10% top",
+  end: "bottom top",
+  scrub: 1,
+});
+
+// Click → Scroll to %
+controllerDots.forEach(dot => {
+  dot.addEventListener("click", () => {
+    const step = dot.dataset.step;
+
+    let targetProgress;
+
+    switch (+step) {
+      case 8: targetProgress = 0.02; break;
+      case 0: targetProgress = 0.07; break;
+      case 1: targetProgress = 0.15; break;
+      case 2: targetProgress = 0.30; break;
+      case 3: targetProgress = 0.50; break;
+      case 4: targetProgress = 0.70; break;
+      case 5: targetProgress = 0.90; break;
+    }
+
+    
+
+
+    gsap.to(window, {
+      scrollTo: {
+        y: st.start + (st.end - st.start) * targetProgress,
+        autoKill: false
+      },
+      duration: 1,
+      ease: "power2.out"
+    });
+  });
+});
 
 function restartAnimation() {
       const cursor = document.querySelector(".cursor-button");
