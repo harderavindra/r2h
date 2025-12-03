@@ -66,10 +66,12 @@
     </div>
     <div class="hero-section">
         <div class="intro">
-            <div class="scroll-down">scroll down</div>
-            <div class="text-container" data-line1="Redefining" data-line2="Hospitality"></div>
-            <div class="intro-circle">
-                <img src="r2h-logo-complete.svg" width="160px" alt="R2H Logo" class="circle-logo" style="opacity: 0" />
+          <div class="scroll-down">
+            <span class="icon"></span>
+            Scroll to Explore</div>
+          <div class="text-container" data-line1="Redefining" data-line2="Hospitality"></div>
+          <div class="intro-circle">
+            <img src="r2h-logo-complete.svg" width="160px" alt="R2H Logo" class="circle-logo" style="opacity: 0" />
             </div>
 
             <div class="intro-video">
@@ -266,24 +268,28 @@
           <div class="images-list">
             <div class="slide">
               <img src="s1.png" alt="About Image 1" />
+              <p>Immersive dining destinations that blend local flavours, cultural narratives, and sensory design.</p>
               <h4>Heritage<br />Resorts</h4>
             </div>
             <div class="slide">
               <video autoplay muted loop playsinline>
                 <source src="shef.mp4" type="video/mp4" />
               </video>
+              <p>Eco-luxury retreats that celebrate heritage, craftsmanship, and sustainability, offering conscious comfort in every detail.</p>
               <h4>Themed<br />Restaurants</h4>
             </div>
             <div class="slide">
               <video autoplay muted loop playsinline>
                 <source src="van-video.mp4" type="video/mp4" />
               </video>
+              <p>Delivering nutrition and wellness directly to schools, communities, and workplaces through our mobile kitchen network.</p>
               <h4>Health<br />on Wheels</h4>
             </div>
             <div class="slide">
               <video autoplay muted loop playsinline>
                 <source src="drink-serve2.mp4" type="video/mp4" />
               </video>
+              <p>A tech-driven ecosystem powered by IoT and AI, optimising sourcing, logistics, and kitchen efficiency to minimise farm-to-table waste.</p>
               <h4>Smart Food<br />Supply Chain</h4>
             </div>
           </div>
@@ -676,6 +682,7 @@
                         document.body.style.height = "auto";
                         document.body.style.overflowX = "hidden";
                         document.body.style.overflowY = "auto";
+                        document.querySelector(".scroll-down").style.opacity = 1;
                         // tl.to(".skip-intro", { display: "none" });
                     },
                 },
@@ -758,15 +765,20 @@
         });
 
 
-        gsap.to(".hero-2", {
+        gsap.fromTo(".hero-2",{ "--stop": "10%"}, {
             "--stop": "200%",
+           
             ease: "none",
+            
             immediateRender: false, // <-- THIS FIXES THE ISSUE
             scrollTrigger: {
                 trigger: ".hero-section",
-                start: "10% top",
+                start: "0% top",
                 end: "66% top",
                 scrub: 1,
+                 onEnter: () => {
+    document.querySelector(".scroll-down").style.opacity = 0;
+  }
             },
         });
         gsap.to(".hero-2", {
@@ -952,7 +964,7 @@ function applyStep(step, p) {
 gsap.to(container, {
   scrollTrigger: {
     trigger: ".pillars-animation",
-    start: "-20% top",
+    start: "0% top",
     end: "bottom top",
     scrub: 1,
 
@@ -969,10 +981,10 @@ gsap.to(container, {
       // MAIN RANGE — divide evenly
       if (p < segment) step = 0;  
       else if (p < segment * 2) step = 1;
-      else if (p < segment * 3) step = 2;
-      else if (p < segment * 4) step = 3;
-      else if (p < segment * 5) step = 4;
-      else if (p < segment * 6) step = 5;
+      else if (p < segment * 2) step = 2;
+      else if (p < segment * 3) step = 3;
+      else if (p < segment * 4) step = 4;
+      else if (p < segment * 5) step = 5;
       else step = 6; // last segment
 
       applyStep(step, p);
