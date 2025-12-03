@@ -168,6 +168,7 @@
   border: 6px solid #efbf04;
    overflow: hidden;
 }
+
 .about-circle2, .about-circle3{
      position: absolute;
   width: 100px;
@@ -185,7 +186,7 @@
       transform: translate(0px, -800px);
 }
 
-.about-section .hero-circle2 video,.about-section .hero-circle1 video {
+.about-section .hero-circle2 video,.about-section .about-circle1 video {
   height: 100%;
   width: 100%;
   object-fit: cover;
